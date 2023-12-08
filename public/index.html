@@ -1,0 +1,34 @@
+<html> 
+    
+    <head>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Stocks</a></li>
+                <li><a href="help.html">Dogs</a></li>
+            </ul>
+        </nav>
+        
+        <div class="main-container">
+            <h2> Player Index</h2>
+            <p>Insert search bar with submission to allow for searching players</p>
+             <form id="stockForm" onsubmit="return lookupStock(event)">
+                <label for="symbol">Enter a Player Name or Jersery #: </label>
+                <input type="text" id="symbol" placeholder="e.g., Lebron James or 23">
+                <button type="submit">Lookup</button>
+            </form>
+
+            <p>Insert Flexbox with a slider showing currently trending players(if easily supportable by API)</p>
+
+        </div>
+        
+        <div class="footer">
+            <p>Footer</p>
+        </div>
+        
+      </body>
+</html>
