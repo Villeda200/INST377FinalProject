@@ -10,20 +10,21 @@
 
         <nav id="main-nav">
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="help.html">Help</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/help">Help</a></li>
             </ul>
         </nav>
         
         <div class="main-container">
             <h2> Player Index</h2>
-            <p>Insert search bar with submission to allow for searching players</p>
-             <form id="stockForm" onsubmit="return lookupStock(event)">
-                <label for="symbol">Enter a Player Name or Jersery #: </label>
-                <input type="text" id="symbol" placeholder="e.g., Lebron James or 23">
-                <button type="submit">Lookup</button>
+             <form id="apiForm">
+                <label for="searchTerm">Enter a Player Name or Jersery #: </label>
+                <input type="text" id="searchTerm" placeholder="e.g., Lebron James">
+                <button type="button" onclick="getData()">Submit</button>
             </form>
+
+            <div id="apiResponse"></div>
 
             <p>Insert Flexbox with a slider showing currently trending players(if easily supportable by API)</p>
 
@@ -32,6 +33,25 @@
         <div class="footer">
             <p>Footer</p>
         </div>
+
+        <script>
+            function getData() {
+              var searchTerm = document.getElementById('searchTerm').value;
+        
+              // Make an API request
+              fetch(`https://www.balldontlie.io/api/v1/players?search=${searchTerm}`)
+                .then(response => response.json())
+                .then(data => {
+                  // Display the API response in the div
+                  document.getElementById('apiResponse').innerHTML = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                  console.error('Error fetching data:', error);
+                  document.getElementById('apiResponse').innerHTML = 'Error fetching data. Please try again.';
+                });
+            }
+          </script>
+
         
       </body>
 </html>
