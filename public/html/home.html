@@ -26,7 +26,6 @@
 
             <div id="apiResponse"></div>
 
-            <p>Insert Flexbox with a slider showing currently trending players(if easily supportable by API)</p>
 
         </div>
         
@@ -34,24 +33,125 @@
             <p>Footer</p>
         </div>
 
+ 
+    
         <script>
             function getData() {
-              var searchTerm = document.getElementById('searchTerm').value;
-        
-              // Make an API request
-              fetch(`https://www.balldontlie.io/api/v1/players?search=${searchTerm}`)
-                .then(response => response.json())
-                .then(data => {
-                  // Display the API response in the div
-                  document.getElementById('apiResponse').innerHTML = JSON.stringify(data, null, 2);
-                })
-                .catch(error => {
-                  console.error('Error fetching data:', error);
-                  document.getElementById('apiResponse').innerHTML = 'Error fetching data. Please try again.';
-                });
-            }
-          </script>
+                var searchTerm = document.getElementById('searchTerm').value;
+                
+                console.log('Search Term:', searchTerm);
 
+                // Check for empty search term
+                if (!searchTerm.trim()) {
+                    document.getElementById('apiResponse').innerHTML = 'Please enter a valid search term.';
+                    return;
+                }
+    
+                // Make an API request
+                fetch(`https://www.balldontlie.io/api/v1/players?search=${searchTerm}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('API Response:', data);
+
+
+                        // Display relevant player information
+                        if (data.data && data.data.length > 0) {
+                            const playerButtons = data.data.map(player => `
+                                <button onclick="loadPlayerInfo(${player.id})">${player.first_name} ${player.last_name}</button>
+                            `).join('');
+                            document.getElementById('apiResponse').innerHTML = playerButtons;
+                        } else {
+                            document.getElementById('apiResponse').innerHTML = 'Player not found.';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        document.getElementById('apiResponse').innerHTML = 'Error fetching data. Please try again.';
+                    });
+            }
+    
+            function loadPlayerInfo(playerId) {
+
+                console.log('Loading player information for ID:', playerId);
+
+
+
+                // Make an API request to get player information using player ID
+                fetch(`https://www.balldontlie.io/api/v1/players/${playerId}`)
+                    .then(response => response.json())
+                    .then(playerData => {
+                        console.log('Player Information:', playerData);
+
+                        
+                        // Display player information
+                        const playerInfo = `
+                            <p><strong>Name:</strong> ${playerData.first_name} ${playerData.last_name}</p>
+                            <p><strong>Team:</strong> ${playerData.team.full_name}</p>
+                            <p><strong>Position:</strong> ${playerData.position}</p>
+                            <p><strong>Height:</strong> ${playerData.height_feet}' ${playerData.height_inches}</p>
+                            <p><strong>Weight:</strong> ${playerData.weight_pounds}</p>
+                            <p><strong>id:</strong> ${playerData.id}</p>
+                            <!-- Add more information as needed -->
+                        `;
+                        document.getElementById('apiResponse').innerHTML = playerInfo;
+
+                        // Create a button dynamically for getPlayerStats
+                        const statsButton = document.createElement('button');
+                        statsButton.textContent = 'Get Player Stats';
+                        statsButton.onclick = function () {
+                            getPlayerStats(playerId);
+                        };
+
+                        // Append the playerInfo and statsButton to apiResponse
+                        const apiResponseElement = document.getElementById('apiResponse');
+                        apiResponseElement.innerHTML = playerInfo;
+                        apiResponseElement.appendChild(statsButton);
+
+
+
+                    })
+                    .catch(error => {
+                        console.error('Error fetching player information:', error);
+                        document.getElementById('apiResponse').innerHTML = 'Error fetching player information. Please try again.';
+                    });
+            }
+
+
+            function getPlayerStats(playerId) {
+            console.log('Getting player stats for ID:', playerId);
+
+
+
+            // Make an API request to get player stats using player ID
+            fetch(`https://www.balldontlie.io/api/v1/stats?player_ids[]=${playerId}`)
+                .then(statsResponse => statsResponse.json())
+                .then(statsData => {
+                console.log('Player Stats:', statsData);
+
+
+
+                    // Display player stats
+                    if (statsData.data && statsData.data.length > 0) {
+                        const statsInfo = `
+                            <p><strong>Points Per Game:</strong> ${statsData.data[0].pts}</p>
+                            <p><strong>Assists Per Game:</strong> ${statsData.data[0].ast}</p>
+                            <p><strong>Rebounds Per Game:</strong> ${statsData.data[0].reb}</p>
+                            <!-- Add more stats information as needed -->
+                        `;
+                        document.getElementById('apiResponse').innerHTML += statsInfo;
+                    } else {
+                        document.getElementById('apiResponse').innerHTML += 'No stats available for this player.';
+                    }
+                })
+                .catch(statsError => {
+                    console.error('Error fetching player stats:', statsError);
+                    document.getElementById('apiResponse').innerHTML += 'Error fetching player stats.';
+                });
+
+            }
+
+
+        </script>
         
       </body>
 </html>
