@@ -1,32 +1,84 @@
-<!--Test Push-->
 <html>
     <head>
-        <title>About Us</title>
-        <link rel="stylesheet" href="../css/stylesheet.css">
+      <meta charset="utf-8">
+      <!--About Us-->
+      <title>About Us</title>
+      <link rel="stylesheet" href="../css/stylesheet.css">
+      <!--Animation Installation-->
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <style>
+          body {
+              background-color: darksalmon;
+              padding: 100px;
+          }
+          #bar {
+              text-align: center;
+              background-color: brown;
+              color:white;
+          }
+          #main-nav {
+              background-color:chocolate;
+          }
+          #main-nav ul li{
+              list-style-type:none;
+              display: inline-block;
+              text-align: center;
+              width: 30%;
+              padding-top: 5px;
+              padding-bottom: 5px;
+          }
+          #main-nav li:hover{
+              background-color: lightslategray;
+              color: white;
+          }
+          .main-container {
+              background-color: darksalmon;
+              margin: auto;
+              text-align: center;
+          }
+      </style>
     </head>
-      
-      <body>
-        <div id="bar">
-          <h1>About Us</h1>
-        </div>
+      <!--Header Title Bar-->
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+    <body style="font-family: cambria">
+        <!--Header Title Bar-->
+        <header id="bar">
+          <h1>
+              About Us
+          </h1>
+        </header>
+        <!--Navigation Bar-->
         <nav id="main-nav">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/help">Help</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="help.html">Help</a></li>
             </ul>
         </nav>
-      
+      <!--Main Text Area-->
         <div class="main-container">
-          <p>Welcome to our about page. We are a fantastic team of individuals dedicated to...</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget odio et justo bibendum dignissim.
-            Maecenas tempus, elit id convallis hendrerit, urna purus varius ex, eu iaculis elit urna vel turpis.
-            Fusce vitae tortor a quam luctus aliquet. Ut suscipit semper arcu, in eleifend libero laoreet id.</p>
-          
-          <div class="button-container">
-            <button class="custom-button">Learn More</button>
-          </div>
+          <h1>Welcome!</h1>
+            <p style="font-size:24px">Welcome to our about page. We are a fantastic team of individuals dedicated to presenting to you data centered around NBA (National Basketball Association) statistics.</p><br>
+              <!--NBA Logo Image-->
+              <img src='https://ichef.bbci.co.uk/images/ic/480xn/p0f3k3nz.jpg'><br>
+            <p style="font-size:30px">We would like to introduce you to the wonderful team that brought you this project</p><br>
+            <!--Team Member Descriptions-->
+            <!--Vinny-->
+            <h1 style="color:red; font-size:100px">Vinny Tran</h1><br>
+              <img src="vinnyPhoto.jpg" alt="Vinny's Photo"><br>
+              <p style="font-size:26px">My name is Vinny Tran. I am a senior at University of Maryland graduating this upcoming Fall 2023 semester, and I am majoring in Information Sciences. In the future, I plan on working in IT as a software/hardwre expert. My hobbies include playing videogames, biking, and playing tennis.</p><br>
+            <!--David-->
+              <h1 style="color:blue; font-size:100px">David Villeda</h1><br>
+                <img src="davidPhoto.jpg" alt="David's Photo"><br>
+                <p style="font-size:26px">My name is David Villeda. I am a senior college student, and I am majoring in Information Sciences. I plan on working as a Data Analyst in the future. A hobby that I am really passionate about is martial arts. I love learning about their respective techniques and backgrounds.</p><br>
+            <!--Chidera-->
+              <h1 style="color:green; font-size:100px">Chidera Nweke</h1>
+                <img src="chideraPhoto.jpg" alt="Chidera's Photo">
+                <p style="font-size:26px">My name is Chidera Nweke. I am a senior college student, and I am majoring in Information Sciences. I plan on working as a Data Analyst in the future. A hobby that I am really passionate about is martial arts. I love learning about their respective techniques and backgrounds.</p><br>
         </div>
-      </body>
-      
+    </body>
+     
 </html>
