@@ -8,6 +8,6 @@ Description of your project: The live site will let users look up any concurrent
 
 Description of target browsers: IOS and Android
 
-Link to User Manual: TBD
+Link to User Manual: https://docs.google.com/document/d/1D7MTfaap9D67k6MamciS17j9-P0RY0li8m9nPxBL5zE/edit#heading=h.3ig2nbls9je9
 
-Link to Developer Manual: TBD
+Link to Developer Manual: https://docs.google.com/document/d/1oyARdbhlUHMCNXh0dfaxEmu2vuGq_HXwJOsZuSVc9eo/edit#heading=h.24m0er2we58s
