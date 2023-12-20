@@ -12,17 +12,33 @@ app.use(express.static(__dirname + '/public'))
 
 // GET, which serves the index.html page
 app.get("/", (req, res) => {
-    res.sendFile("public/html/home.html", { root: __dirname })
+    res.sendFile("public/html/about.html", { root: __dirname })
 })
 
 // GET, which serves the about.html page
-app.get("/about", (req, res) => {
-    res.sendFile("public/html/about.html", { root: __dirname })
+app.get("/home", (req, res) => {
+    res.sendFile("public/html/home.html", { root: __dirname })
 })
 
 // GET, which serves the catalog.html page
 app.get("/help", (req, res) => {
     res.sendFile("public/html/help.html", { root: __dirname })
+})
+
+
+// GET, which serves the index.html page
+app.get("/vinnyPhoto", (req, res) => {
+  res.sendFile("public/images/vinnyPhoto.jpg", { root: __dirname })
+})
+
+// GET, which serves the index.html page
+app.get("/davidPhoto", (req, res) => {
+  res.sendFile("public/images/davidPhoto.jpg", { root: __dirname })
+})
+
+// GET, which serves the index.html page
+app.get("/chideraPhoto", (req, res) => {
+  res.sendFile("public/images/chideraPhoto.jpg", { root: __dirname })
 })
 
 
