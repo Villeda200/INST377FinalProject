@@ -37,6 +37,12 @@
               text-align: center;
           }
 
+          .TeamMember {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+
           #profiles {
           max-width: 300px;
           height: 300px;
@@ -46,10 +52,7 @@
       </style>
     </head>
       <!--Header Title Bar-->
-      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-      <script>
-        AOS.init();
-      </script>
+
     <body style="font-family: cambria">
         <!--Header Title Bar-->
         <header id="bar">
@@ -72,20 +75,44 @@
               <!--NBA Logo Image-->
               <img src='https://ichef.bbci.co.uk/images/ic/480xn/p0f3k3nz.jpg'><br>
             <p style="font-size:30px">We would like to introduce you to the wonderful team that brought you this project</p><br>
+            
+
             <!--Team Member Descriptions-->
-            <!--Vinny-->
+
+
             <h1 style="color:red; font-size:100px">Vinny Tran</h1><br>
-              <img src="/vinnyPhoto" alt="Vinny's Photo"  id="profiles"><br>
-              <p style="font-size:26px">My name is Vinny Tran. I am a senior at University of Maryland graduating this upcoming Fall 2023 semester, and I am majoring in Information Sciences. In the future, I plan on working in IT as a software/hardwre expert. My hobbies include playing videogames, biking, and playing tennis.</p><br>
-            <!--David-->
-              <h1 style="color:blue; font-size:100px">David Villeda</h1><br>
-                <img src="/davidPhoto" alt="David's Photo" id="profiles"><br>
-                <p style="font-size:26px">My name is David Villeda. I am a senior college student, and I am majoring in Information Sciences. I currently work with the Prince George's Memorial Library System and am looking to develop tangible skills which would be beneficial to my current or future career.</p><br>
-            <!--Chidera-->
-              <h1 style="color:green; font-size:100px">Chidera Nweke</h1>
-                <img src="/chideraPhoto" alt="Chidera's Photo"  id="profiles">
-                <p style="font-size:26px">My name is Chidera Nweke. I am a senior college student, and I am majoring in Information Sciences. I plan on working as a Data Analyst in the future. A hobby that I am really passionate about is martial arts. I love learning about their respective techniques and backgrounds.</p><br>
+            <div class ="TeamMember" data-aos="flip-left" data-aos-delay="100" data-aos-duration="1000"> 
+                <!--Vinny-->
+                <img src="/vinnyPhoto" alt="Vinny's Photo"  id="profiles"><br>
+                <p style="font-size:26px">My name is Vinny Tran. I am a senior at University of Maryland graduating this upcoming Fall 2023 semester, and I am majoring in Information Sciences. In the future, I plan on working in IT as a software/hardwre expert. My hobbies include playing videogames, biking, and playing tennis.</p><br>
+            </div>
+
+            <h1 style="color:blue; font-size:100px">David Villeda</h1><br>
+            <div class ="TeamMember" data-aos="flip-left" data-aos-delay="100" data-aos-duration="1000"> 
+              <!--David-->
+              <img src="/davidPhoto" alt="David's Photo" id="profiles"><br>
+              <p style="font-size:26px">My name is David Villeda. I am a senior college student, and I am majoring in Information Sciences. I currently work with the Prince George's Memorial Library System and am looking to develop tangible skills which would be beneficial to my current or future career.</p><br>
+            
+            </div>
+
+            <h1 style="color:green; font-size:100px">Chidera Nweke</h1>
+            <div class ="TeamMember" data-aos="flip-left" data-aos-delay="100" data-aos-duration="1000"> 
+              <!--Chidera-->
+              <img src="/chideraPhoto" alt="Chidera's Photo"  id="profiles">
+              <p style="font-size:26px">My name is Chidera Nweke. I am a senior college student, and I am majoring in Information Sciences. I plan on working as a Data Analyst in the future. A hobby that I am really passionate about is martial arts. I love learning about their respective techniques and backgrounds.</p><br>
+     
+            </div>
+
+
         </div>
+
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
+
+
     </body>
      
 </html>
