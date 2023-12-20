@@ -1,11 +1,43 @@
 <html> 
-    
     <head>
+        <!--Home-->
+        <title>NBA Stats: Home</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
+        <style>
+            body {
+                background-color: lightcoral;
+                padding: 100px;
+            }
+            #bar {
+                text-align: center;
+                background-color: brown;
+                color:white;
+            }
+            #main-nav {
+                background-color:chocolate;
+            }
+            #main-nav ul li{
+                list-style-type:none;
+                display: inline-block;
+                text-align: center;
+                width: 30%;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            #main-nav li:hover{
+                background-color: lightslategray;
+                color: white;
+            }
+            .main-container {
+                background-color: lightcoral;
+                margin: auto;
+                text-align: center;
+            }     
+        </style>
     </head>
     <body>
         <div id="bar">
-            <h1>Home</h1>
+            <h1>NBA Stats: Home</h1>
         </div>
 
         <nav id="main-nav">
@@ -17,6 +49,9 @@
         </nav>
         
         <div class="main-container">
+            <!--NBA Lebron Wade Image-->
+            <img src='https://www.jsonline.com/gcdn/-mm-/dfff082d1e4931b30569ae37195b6862a6a8ef8a/c=0-361-2915-2008/local/-/media/2018/05/22/USATODAY/USATODAY/636625868623447717-AP-APTOPIX-Heat-Bucks-Basketball-39255807.JPG?width=2915&height=1647&fit=crop&format=pjpg&auto=webp' width="500" 
+            height="300"><br>
             <h2> Player Index</h2>
              <form id="apiForm">
                 <label for="searchTerm">Enter a Player Name or Jersery #: </label>
@@ -28,13 +63,7 @@
 
 
         </div>
-        
-        <div class="footer">
-            <p>Footer</p>
-        </div>
 
- 
-    
         <script>
             function getData() {
                 var searchTerm = document.getElementById('searchTerm').value;
